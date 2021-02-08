@@ -7,7 +7,7 @@ class YandexSearchPage(BasePage):
         search_input_field = self.browser.find_element(*YandexPageLocators.input_field)
         search_input_field.send_keys(phrase)
 
-    def select_line_from_suggested_search_list(self,index):
+    def select_line_from_suggested_search_list(self, index):
         select = self.browser.find_element_by_css_selector(f"[data-index = '{index}']")
         select.click()
 

@@ -6,12 +6,12 @@ def test_open_perfect_art_site(browser):
     link = "https://yandex.ru/"
     phrase = 'perfect art'
 
-    page = YandexSearchPage(browser,link)
+    page = YandexSearchPage(browser, link)
     page.open()
     page.search_phrase(phrase)
     page.select_line_from_suggested_search_list(0)
-    assert page.get_name_of_the_first_link_on_the_results_page() == "perfectart.ru",\
-            "Первая ссылка не введет на perfectart.ru"
+    assert page.get_name_of_the_first_link_on_the_results_page() == "perfectart.ru", \
+        "Первая ссылка не введет на perfectart.ru"
 
     page.open_and_switch_to_new_tab(YandexPageLocators.link_of_the_fist_site_on_the_result_page)
     assert page.get_new_url() == "https://perfectart.ru/", "Открылся не сайт https://perfectart.ru/"
@@ -35,5 +35,3 @@ def test_open_pictures(browser):
     page.click_element(YandexPageLocators.picture_switcher_left)
     identifier_third_picture = page.get_unique_picture_identifier()
     assert identifier_first_picture == identifier_third_picture, "Картинка 1 не вернулась обратно!"
-
-
